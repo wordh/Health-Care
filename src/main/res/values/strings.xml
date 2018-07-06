@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Rohingya Health Care</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintPasswrd">Password</string>
+    <string name="btnSignIn">Sign In</string>
+    <string name="btnSignUp">Sign Up</string>
+    <string name="existingUser">Already have Account?</string>
+    <string name="btnSignInHere">Sign In Here</string>
+    <string name="userLogin">User Login</string>
+    <string name="newUserSignUp">New User Sign Up</string>
+</resources>
