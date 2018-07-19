@@ -13,6 +13,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonLogout;
+    private Button addPatientbtn;
+    private Button reviewPatientbtn;
     private TextView textViewUserEmail;
 
     //firebase auth object
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         buttonLogout = (Button) findViewById(R.id.logout);
+        addPatientbtn=(Button) findViewById(R.id.addPatient);
+        reviewPatientbtn=(Button) findViewById(R.id.reviewPatient);
 
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -47,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //adding listener to button
         buttonLogout.setOnClickListener(this);
+        addPatientbtn.setOnClickListener(this);
+        reviewPatientbtn.setOnClickListener(this);
 
     }
 
@@ -61,6 +67,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             finish();
             //starting login activity
             startActivity(new Intent(this, SignIn.class));
+        }
+
+        if (view ==addPatientbtn){
+            startActivity(new Intent(this, AddPatient.class));
+        }
+
+        if(view==reviewPatientbtn){
+            startActivity(new Intent(this, ReviewPatient.class));
         }
 
     }
