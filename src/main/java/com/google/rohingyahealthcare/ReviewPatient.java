@@ -30,7 +30,7 @@ public class ReviewPatient extends AppCompatActivity implements View.OnClickList
     private TextView mTempView;
     private Button searchButton;
     private EditText findPatient;
-
+    private String uid;
 
 
     @Override
@@ -53,17 +53,18 @@ public class ReviewPatient extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         if (view == searchButton){
-            final String uid= findPatient.getText().toString().trim();
+            uid= findPatient.getText().toString().trim();
 
             myRef.child("Patient").child(uid).child("uniqueKey").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     String value= dataSnapshot.getValue(String.class);
-
-                    if (value==uid){
+                    //Toast.makeText(ReviewPatient.this,uid + value,Toast.LENGTH_LONG).show();
+                    if (value.equals(uid)){
+                        Toast.makeText(ReviewPatient.this,"Value matched",Toast.LENGTH_LONG).show();
                         Intent i = new Intent(ReviewPatient.this,PatientProfile.class);
-                        i.putExtra("uid",uid);
-                        startActivity(i);
+                        i.putExtra("UID",value.toString());
+                        ReviewPatient.this.startActivity(i);
                     }
                     else Toast.makeText(ReviewPatient.this,"Patient not Found",Toast.LENGTH_LONG).show();
                 }
