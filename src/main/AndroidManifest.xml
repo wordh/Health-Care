@@ -21,7 +21,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddPatient" />
-        <activity android:name=".ReviewPatient"></activity>
+        <activity android:name=".ReviewPatient" />
+        <activity android:name=".PatientProfile" />
+        <activity android:name=".PatientHistory" />
+        <activity android:name=".AddSymptom" />
+        <activity android:name=".CallDoctor"></activity>
     </application>
 
 </manifest>

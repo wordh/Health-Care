@@ -8,6 +8,15 @@ public class Patient {
     private String name;
     private String age;
     private String gender;
+    private String uniqueKey;
+
+    public String getUniqueKey() {
+        return uniqueKey;
+    }
+
+    public void setUniqueKey(String uniqueKey) {
+        this.uniqueKey = uniqueKey;
+    }
 
     public String getName() {
         return name;
