@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+        #button{
+        position:absolute;
+        right:10px;
+        top:5px;
+        }
+
+        body{
+        background-image: url(https://images.pexels.com/photos/1587/blurred-background.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+        padding: 20px;
+        text-align: center;
+        text-color:white;
+        }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
+
 </head>
 <body>
-{% csrf_token %}
+
 Welcome {{e}}
+<br><br>
+<div id="report">
+    <button type="button" onclick="location.href='{%url 'create_report'%}'">New Report</button>
+    <button type="button" onclick="location.href='{%url 'check'%}'">Check Report</button>
+</div>
+
+<div id="button">
+    <button type="button" onclick="location.href='{%url 'log'%}'">Logout</button>
+</div>
 </body>
 </html>

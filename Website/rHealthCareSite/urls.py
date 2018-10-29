@@ -21,4 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$',views.signIn),
     url(r'^postsign/',views.postsign),
+    url(r'^logout/',views.logout,name="log"),
+    url(r'^create_report/',views.createReport,name="create_report"),
+    url(r'^post_create_report/',views.post_create_report,name="post_create_report"),
+    url(r'^check/',views.check,name="check")
 ]
