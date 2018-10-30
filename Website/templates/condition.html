@@ -53,36 +53,25 @@
 <body>
 <div class="container">
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <h1>Patient History</h1>
+  <h1>Patient Condition</h1>
 </div>
 <br><br>
 <div class="jumbotron text-center" style="margin-bottom:0">
-    {% for time,medicine,practice  in comb_list %}
+    {% for anemia,chest_pain,gastric,headache,others,pain_lower_abdomen,pain_upper_abdomen in comb_list %}
 
 
     <br><br>
 
     <table>
 
-      <tr>
-        <td>Date: {{time}}</td>
-        <td>Medicine: {{medicine}}</td>
-        <td>Practice: {{practice}}</td>
-      </tr>
+  <tr>
+    <td>anemia: {{anemia}}</td>
+    <td>chest_pain: {{chest_pain}}</td>
+    <td>gastric: {{gastric}}</td>
+    </tr>
     </table>
 
-        <br><br>
-
-
-
     {% endfor %}
-
-    <ul>
-
-        <li> Anemia: {{a}}  </li>
-        <li> Chest Pain: {{chest}}  </li>
-    </ul>
-
 </div>
 <div id="button">
     <button type="button" onclick="location.href='{%url 'log'%}'">Logout</button>

@@ -24,9 +24,20 @@
 
 Welcome {{e}}
 <br><br>
+
+<div>
+    <form method="get" action="/check" id="s">
+        <input type="text" placeholder="search..." name="search">
+        <button type="submit" onclick="location.href='/check/'" form="s">Go</button>
+        <button type="submit" onclick="location.href='/check/'" form="s">Check Report</button>
+    </form>
+</div>
+
+<br><br>
+
 <div id="report">
     <button type="button" onclick="location.href='{%url 'create_report'%}'">New Report</button>
-    <button type="button" onclick="location.href='{%url 'check'%}'">Check Report</button>
+
 </div>
 
 <div id="button">

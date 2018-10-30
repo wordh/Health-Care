@@ -66,8 +66,8 @@ def check(request):
 
     idtoken = request.session['uid']
     a = authe.get_account_info(idtoken)
-
-    timestamps=database.child('Patient').child('-LJ3QMmhxCG5dv1WtS3U').child('History').shallow().get().val()
+    search = request.GET.get('search')
+    timestamps=database.child('Patient').child(search).child('History').shallow().get().val()
 
     list_time=[]
     for i in timestamps:
@@ -78,11 +78,18 @@ def check(request):
     practice=[]
 
     for i in list_time:
-        wor=database.child('Patient').child('-LJ3QMmhxCG5dv1WtS3U').child('History').child(i).child('medicine').get().val()
+        wor=database.child('Patient').child(search).child('History').child(i).child('medicine').get().val()
         medicine.append(wor)
-        prac=database.child('Patient').child('-LJ3QMmhxCG5dv1WtS3U').child('History').child(i).child('practice').get().val()
+        prac=database.child('Patient').child(search).child('History').child(i).child('practice').get().val()
         practice.append(prac)
 
+    anemia=database.child('Patient').child(search).child('Symptoms').child('anemia').get().val()
+    chest_pain=database.child('Patient').child(search).child('Symptoms').child('chest_pain').get().val()
+    gastric=database.child('Patient').child(search).child('Symptoms').child('gastric').get().val()
+    headache=database.child('Patient').child(search).child('Symptoms').child('headache').get().val()
+    others=database.child('Patient').child(search).child('Symptoms').child('others').get().val()
+    pain_lower_abdomen=database.child('Patient').child(search).child('Symptoms').child('pain_lower_abdomen').get().val()
+    pain_upper_abdomen=database.child('Patient').child(search).child('Symptoms').child('pain_upper_abdomen').get().val()
     comb_list = zip(list_time,medicine,practice)
-
-    return render(request,'check.html',{'comb_list':comb_list})
+    comb_list2 = [anemia,chest_pain,gastric,headache,pain_upper_abdomen,pain_lower_abdomen,others]
+    return render(request,'check.html',{'comb_list':comb_list,'a':anemia,'chest':chest_pain,'gastric':gastric})
